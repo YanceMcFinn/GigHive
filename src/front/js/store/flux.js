@@ -37,7 +37,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 
       getArtist: async () => {
         try {
-          const resp = await fetch(process.env.BACKEND_URL + "/api/artists");
+          const resp = await fetch("/api/artists");
           const data = await resp.json();
           // console.log(data);
           setStore({ artists: data });
