@@ -48,7 +48,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       },
       getVenue: async () => {
         try {
-          const resp = await fetch(process.env.BACKEND_URL + "/api/venues");
+          const resp = await fetch("/api/venues");
           const data = await resp.json();
           setStore({ venues: data });
           return data;
@@ -59,7 +59,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       getUser: async () => {
         const store = getStore();
         try {
-          const resp = await fetch(process.env.BACKEND_URL + "/api/user", {
+          const resp = await fetch("/api/user", {
             headers: {
               Authorization: "Bearer " + store.token,
             },
@@ -148,7 +148,7 @@ const getState = ({ getStore, getActions, setStore }) => {
         };
         try {
           const response = await fetch(
-            process.env.BACKEND_URL + "/api/register/artist",
+            "/api/register/artist",
             opts
           );
           if (response.status !== 200) {
@@ -255,7 +255,7 @@ const getState = ({ getStore, getActions, setStore }) => {
         };
         try {
           const response = await fetch(
-            process.env.BACKEND_URL + "/api/register",
+            "/api/register",
             opts
           );
           if (response.status !== 200) {
@@ -286,7 +286,7 @@ const getState = ({ getStore, getActions, setStore }) => {
         };
         try {
           const resp = await fetch(
-            process.env.BACKEND_URL + "/api/login",
+            "/api/login",
             opts
           );
           if (resp.status !== 200) {
@@ -329,7 +329,7 @@ const getState = ({ getStore, getActions, setStore }) => {
         };
         try {
           const response = await fetch(
-            process.env.BACKEND_URL + "/api/messages",
+            "/api/messages",
             opts
           );
           if (response.status !== 200) {
